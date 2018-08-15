@@ -7,21 +7,15 @@ import java.util.List;
 
 public class BloggPagination {
 
+    public List <posts> getPostForPage(int page, List <posts> list) {
 
-    /*int page    = 1; // starts with 0, so we on the 2nd page
-    int perPage = 2;
 
-    String[] list    = new String[] {"a", "b", "c", "d", "e", "f"};
-    String[] subList = null;
+        int sizePerPage = 3;
 
-    int size = list.length;
-    int from = page * perPage;
-    int to   = (page + 1) * perPage;
-    to = to < size ? to :size;
+        int from = Math.max(0, page -1 * sizePerPage);
+        int to = Math.min(list.size(), (page + 1) * sizePerPage);
 
-    if ( from < size ) {
-        subList = Arrays.copyOfRange(list, from, to);
-    }  */
-
+        return list.subList(from, to);
+    }
 
 }
