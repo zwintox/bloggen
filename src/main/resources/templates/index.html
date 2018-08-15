@@ -6,9 +6,12 @@
 </head>
 <body>
 <span th:if="${notloggedin}">
+<form th:action="@{index}" th:object="${users}">
 <input type="text" th:field="*{username}" placeholder="Skriv in ditt användarnamn">
 <input type="text" th:field="*{password}" placeholder="Fyll i ditt lösenord">
+<input type="submit" value="submit">
 
+</form>
 </span>
 
 <span th:if="${loggedin}">
