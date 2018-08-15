@@ -14,3 +14,17 @@
 
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+#container1 {
+    height: 50px;
+    width: 500px;
+    border: black;
+    border-style: ridge;
+}
+
+#container2{
+    height: 500px;
+    width:500px;
+    border: black;
+    border-style: ridge;
+}

@@ -22,18 +22,23 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
     @Autowired UserRepositoryClass userRepositoryClass;
 
 
+
+    private int userId;
+  
     @PostMapping("/index")
     public String login(posts post, Model model, users user, HttpServletRequest request) {
         users checked = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        this.userId = checked.getId();
         System.out.println(checked.getUsername());
         if (checked != null) {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedin", true);
             model.addAttribute("loggedin", true);
-            return "index";
+            return "bloggposts";
         } else {
             model.addAttribute("notloggedin", true);
             return "index";
@@ -46,7 +51,7 @@ public class UserController {
         HttpSession session = request.getSession(true);
         if (session.getAttribute("loggedin") != null) {
             model.addAttribute("loggedin", true);
-            return "index";
+            return "bloggposts";
         } else {
             model.addAttribute("notloggedin", true);
             return "index";
@@ -65,5 +70,8 @@ public class UserController {
 
 
 
+    public int getUserId() {
+        return this.userId;
+    }
 }
 
