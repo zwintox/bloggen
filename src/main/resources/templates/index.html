@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Inloggningssida</title>
+
+    <link rel="stylesheet" type="text/css" href="BloggStyle.css">
 </head>
 <body>
 <span th:if="${notloggedin}">
@@ -17,6 +19,17 @@
 <span th:if="${loggedin}">
 
 <p>Välkommen till din dagboksblogg</p>
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
 
 
 </span>
