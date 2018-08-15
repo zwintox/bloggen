@@ -1,4 +1,6 @@
 package com.example.blogg;
 
-public class PostRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface PostRepository extends CrudRepository<posts, Integer> {
 }

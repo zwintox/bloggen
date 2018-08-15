@@ -1,4 +1,6 @@
 package com.example.blogg;
 
-public class UserRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<users, Integer> {
 }
