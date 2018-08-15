@@ -20,7 +20,7 @@ import javax.persistence.Id;
 
         }
 
-        public posts (String name) {
+        public posts (String post) {
             this.post = post;
         }
 
@@ -36,7 +36,7 @@ import javax.persistence.Id;
             return post;
         }
 
-        public void setPost(String name) {
+        public void setPost(String post) {
             this.post = post;
         }
 
