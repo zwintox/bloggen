@@ -11,27 +11,25 @@ import java.util.List;
 
 @Controller
 public class PostController {
-@Autowired
+    @Autowired
     private PostRepository postRepository;
 
-private UserController userController;
+    private UserController userController;
 
-@PostMapping ("/index")
-public String postpost (Model model, users users, posts posts, HttpServletRequest request) {
-    int userID = userController.getUserId();
-postRepository.save(posts);
-}
-
-@GetMapping ("/bloggposts")
-    public String getPost(Model model, users users, posts posts, HttpServletRequest request) {
-    int userID = userController.getUserId();
-    List <posts> allPosts = postRepository.findAllByUserID(userID);
-    for (int i = 0; i <allPosts.size() ; i++) {
-        System.out.println(allPosts.get(i).getHeadline());
+    @PostMapping("/bloggposts")
+    public String postpost(Model model, users users, posts posts, HttpServletRequest request) {
+        int userID = userController.getUserId();
+        postRepository.save(posts);
+        return "bloggposts";
     }
-    return ("/bloggposts");
-}
 
-
-
+    @GetMapping("/bloggposts")
+    public String getPost(Model model, users users, posts posts, HttpServletRequest request) {
+        int userID = userController.getUserId();
+        List<posts> allPosts = postRepository.findAllByUserID(userID);
+        for (int i = 0; i < allPosts.size(); i++) {
+            System.out.println(allPosts.get(i).getHeadline());
+        }
+        return ("/bloggposts");
+    }
 }
