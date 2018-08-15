@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Inloggningssida</title>
+</head>
+<body>
+<span th:if="${notloggedin}">
+<input type="text" th:field="*{username}" placeholder="Skriv in ditt användarnamn">
+<input type="text" th:field="*{password}" placeholder="Fyll i ditt lösenord">
+
+</span>
+
+<span th:if="${loggedin}">
+
+<p>Välkommen till din dagboksblogg</p>
+
+
+</span>
+</body>
+</html>
