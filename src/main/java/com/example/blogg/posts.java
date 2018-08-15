@@ -12,17 +12,15 @@ import javax.persistence.Id;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
+        private int userID;
         private String headline;
         private String storytext;
-        private String post;
+
 
         public posts() {
 
         }
 
-        public posts (String post) {
-            this.post = post;
-        }
 
         public int getId() {
             return id;
@@ -32,12 +30,12 @@ import javax.persistence.Id;
             this.id = id;
         }
 
-        public String getPost() {
-            return post;
+        public int getUserID() {
+            return userID;
         }
 
-        public void setPost(String post) {
-            this.post = post;
+        public void setUserID(int userID) {
+            this.userID = userID;
         }
 
         public String getHeadline() {
