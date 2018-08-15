@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Inloggningssida</title>
+
+    <link rel="stylesheet" type="text/css" href="BloggStyle.css">
 </head>
 <body>
 <span th:if="${notloggedin}">
@@ -20,6 +22,17 @@
 <p>Välkommen till din dagboksblogg</p>
 <form th:action="@{index}" th:object="${posts}" method="post">
 <input type="text" th:field="*{headline}" placeholder="Titel på ditt inlägg">
+
+<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
 
 
 
