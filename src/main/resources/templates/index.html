@@ -6,9 +6,10 @@
 </head>
 <body>
 <span th:if="${notloggedin}">
-<form th:action="@{index}" th:object="${users}">
+    <p>Välkommen att logga in</p>
+<form th:action="@{index}" th:object="${users}" method="post">
 <input type="text" th:field="*{username}" placeholder="Skriv in ditt användarnamn">
-<input type="text" th:field="*{password}" placeholder="Fyll i ditt lösenord">
+<input type="password" th:field="*{password}" placeholder="Fyll i ditt lösenord">
 <input type="submit" value="submit">
 
 </form>
@@ -17,7 +18,13 @@
 <span th:if="${loggedin}">
 
 <p>Välkommen till din dagboksblogg</p>
+<form th:action="@{index}" th:object="${posts}" method="post">
+<input type="text" th:field="*{headline}" placeholder="Titel på ditt inlägg">
 
+
+
+
+</form>
 
 </span>
 </body>

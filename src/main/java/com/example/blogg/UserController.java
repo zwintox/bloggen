@@ -17,30 +17,32 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/index")
-    public String login(Model model, users user, HttpServletRequest request) {
+    public String login(posts post, Model model, users user, HttpServletRequest request) {
         users checked = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        System.out.println(checked.getUsername());
         if (checked != null) {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedin", true);
             model.addAttribute("loggedin", true);
             return "index";
         } else {
-            model.addAttribute("loggedin", false);
+            model.addAttribute("notloggedin", true);
             return "index";
         }
     }
 
 
     @GetMapping("/index")
-    public String getUsers(Model model, HttpServletRequest request) {
+    public String getUsers(posts post, users user, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         if (session.getAttribute("loggedin") != null) {
             model.addAttribute("loggedin", true);
             return "index";
         } else {
-            model.addAttribute("loggedin", false);
+            model.addAttribute("notloggedin", true);
             return "index";
         }
     }
+
 }
 
