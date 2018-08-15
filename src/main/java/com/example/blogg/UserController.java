@@ -15,10 +15,11 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
-
+    private int userId;
     @PostMapping("/index")
     public String login(posts post, Model model, users user, HttpServletRequest request) {
         users checked = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        this.userId = checked.getId();
         System.out.println(checked.getUsername());
         if (checked != null) {
             HttpSession session = request.getSession(true);
@@ -44,5 +45,8 @@ public class UserController {
         }
     }
 
+    public int getUserId() {
+        return this.userId;
+    }
 }
 
