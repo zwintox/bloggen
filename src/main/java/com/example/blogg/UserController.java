@@ -25,7 +25,7 @@ public class UserController {
             HttpSession session = request.getSession(true);
             session.setAttribute("loggedin", true);
             model.addAttribute("loggedin", true);
-            return "index";
+            return "bloggposts";
         } else {
             model.addAttribute("notloggedin", true);
             return "index";
@@ -38,7 +38,7 @@ public class UserController {
         HttpSession session = request.getSession(true);
         if (session.getAttribute("loggedin") != null) {
             model.addAttribute("loggedin", true);
-            return "index";
+            return "bloggposts";
         } else {
             model.addAttribute("notloggedin", true);
             return "index";
