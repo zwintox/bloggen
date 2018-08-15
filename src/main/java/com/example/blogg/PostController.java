@@ -15,7 +15,7 @@ public class PostController {
     private PostRepository postRepository;
 
     private UserController userController;
-
+BloggPagination bloggList;
     @PostMapping("/bloggposts")
     public String postpost(Model model, users users, posts posts, HttpServletRequest request) {
         int userID = userController.getUserId();
@@ -27,6 +27,7 @@ public class PostController {
     public String getPost(Model model, users users, posts posts, HttpServletRequest request) {
         int userID = userController.getUserId();
         List<posts> allPosts = postRepository.findAllByUserID(userID);
+        List <posts> paginationList = bloggList.getPostForPage()
         for (int i = 0; i < allPosts.size(); i++) {
             System.out.println(allPosts.get(i).getHeadline());
         }
